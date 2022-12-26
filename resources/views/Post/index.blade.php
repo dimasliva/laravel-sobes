@@ -9,9 +9,21 @@
         <tbody>
         @foreach($posts as $post)
             <tr>
-                <th class="{{$loop->index % 2 === 0 ? 'table-active' : 'table-dark'}}">{{$post->id}}</th>
-                <td class="{{$loop->index % 2 === 0 ? 'table-active' : 'table-dark'}}">{{$post->title}} {{$loop->index % 2 == 0}}</td>
-                <td class="{{$loop->index % 2 === 0 ? 'table-active' : 'table-dark'}}">{{$post->category_id}}</td>
+                <th class="{{$loop->index % 2 === 0 ? 'table-active' : 'table-dark'}}">
+                    <a href="{{route('post.show', ["id" => $post->id])}}">
+                        {{$post->id}}
+                    </a>
+                </th>
+                <td class="{{$loop->index % 2 === 0 ? 'table-active' : 'table-dark'}}">
+                    <a href="{{route('post.show', ["id" => $post->id])}}">
+                        {{$post->title}}
+                    </a>
+                </td>
+                <td class="{{$loop->index % 2 === 0 ? 'table-active' : 'table-dark'}}">
+                    <a href="{{route('post.show', ["id" => $post->id])}}">
+                        {{$post->category_id}}
+                    </a>
+                </td>
             </tr>
         @endforeach
         </tbody>
