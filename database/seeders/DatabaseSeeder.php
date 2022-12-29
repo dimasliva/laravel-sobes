@@ -20,5 +20,11 @@ class DatabaseSeeder extends Seeder
     Category::factory(20)->create();
     Post::factory(10)->create();
     Tag::factory(30)->create();
+    $tags = Tag::all();
+    Post::all()->each(function ($post) use ($tags) {
+      $post->tags()->attach(
+          $tags->random(1, 30)->pluck('id')->toArray()
+      );
+    });
   }
 }

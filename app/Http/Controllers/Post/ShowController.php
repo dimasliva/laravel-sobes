@@ -11,8 +11,8 @@ class ShowController extends Controller
 {
     public function __invoke($id)
     {
-      $tags = Tag::all();
       $post = Post::find($id);
+      $tags = Tag::all();
 //      $tags = $post->tags();
       $category = Category::find($post->category_id);
         return view('post.show', compact('post', 'category', 'tags'));

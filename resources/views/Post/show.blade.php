@@ -18,6 +18,7 @@
       <span class="text-danger">{{$message}}</span>
       @enderror
     </div>
+    {{$tags}}
     <div class="mb-3">
       <label for="pass" class="form-label">Tags</label>
       <select class="form-select" multiple name="tags[]" id="tags">

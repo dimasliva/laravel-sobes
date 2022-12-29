@@ -20,7 +20,7 @@ class PostFactory extends Factory
     {
         return [
             "title" => fake()->name(2),
-            "category_id" => rand(0, 10),
+            "category_id" => rand(1, 10),
         ];
     }
 }
