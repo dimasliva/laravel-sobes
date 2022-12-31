@@ -21,7 +21,7 @@
                 </td>
                 <td class="{{$loop->index % 2 === 0 ? 'table-active' : 'table-dark'}}">
                     <a href="{{route('post.show', ["id" => $post->id])}}">
-                        {{$post->category_id}}
+                        {{$post->category->name}}
                     </a>
                 </td>
             </tr>

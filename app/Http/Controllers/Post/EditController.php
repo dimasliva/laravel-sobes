@@ -7,13 +7,13 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 
-class ShowController extends Controller
+class EditController extends Controller
 {
   public function __invoke($id)
   {
     $post = Post::find($id);
-    $tags = $post->tags;
-    $category = $post->category;
-    return view('post.show', compact('post', 'category', 'tags'));
+    $tags = Tag::all();
+    $categories = Category::all();
+    return view('post.edit', compact('post', 'categories', 'tags'));
   }
 }
