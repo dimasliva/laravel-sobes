@@ -10,7 +10,7 @@
       @enderror
     </div>
     <div class="mb-3">
-      <label for="pass" class="form-label">Categories {{old('category_id')}}</label>
+      <label for="pass" class="form-label">Categories</label>
       <select class="form-select" name="category_id" id="category_id">
         <option value="{{$category->name}}">{{$category->name}}</option>
       </select>

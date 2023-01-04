@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-  <form method="post" action="{{route('post.store')}}">
+  <form method="post" action="{{route('post.update', $post)}}">
     @csrf
     <div class="mb-3">
       <label for="title" class="form-label">Title</label>
@@ -27,25 +27,30 @@
       <span class="text-danger">{{$message}}</span>
       @enderror
     </div>
-    @foreach($post->tags as $tag)
-      {{gettype($tag)}}
-    @endforeach
     <div class="mb-3">
       <label for="pass" class="form-label">Tags</label>
-      <select class="form-select" multiple name="tags[]" id="tags">
+
+      @foreach($tags as $tag)
+        @foreach($post->tags as $selected)
+          {{$selected->id === $tag->id ? "$tag->id | $selected->id" : ""}}
+        @endforeach
+      @endforeach
+      <select class="form-control" multiple name="tags[]" id="tags">
         <option disabled>Open this select menu</option>
         @foreach($tags as $tag)
           <option
-                  {{is_array($post->tags) && in_array($tag->id, $post->tags) ? 'selected' : ''}}
+                  @foreach($post->tags as $selected)
+                  {{$tag->id === $selected->id ? 'selected': ''}}
+                  @endforeach
                   value="{{$tag->id}}"
-          >{{$tag->name}}</option>
+          >{{$tag->id}}: {{$tag->name}}</option>
         @endforeach
       </select>
       @error('tags')
       <span class="text-danger">{{$message}}</span>
       @enderror
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-warning">Change</button>
   </form>
 @endsection
 <style>
