@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
   public function run()
   {
     Category::factory(20)->create();
-    Post::factory(10)->create();
+    Post::factory(100)->create();
     Tag::factory(30)->create();
     $tags = Tag::all();
     $numbs = rand(1, 30);

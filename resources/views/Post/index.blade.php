@@ -28,5 +28,7 @@
         @endforeach
         </tbody>
     </table>
+    <nav aria-label="Page navigation example"></nav>
+    <ul  class="pagination">{{$posts->withQueryString()->links()}}</ul >
 {{--table-active--}}
 @endsection
