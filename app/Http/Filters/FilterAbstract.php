@@ -27,8 +27,6 @@ abstract class FilterAbstract implements FilterInterface
   {
     $this->before($builder);
     foreach ($this->getCallbacks() as $name => $callback) {
-      dd($this->queryParams);
-//      dd($this->queryParams, $name, $callback, $this->queryParams[$name], $this->getCallbacks());
       if (isset($this->queryParams[$name])) {
         call_user_func($callback, $builder, $this->queryParams[$name]);
       }
